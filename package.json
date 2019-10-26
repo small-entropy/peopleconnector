@@ -1,0 +1,41 @@
+{
+  "name": "peopleconnector",
+  "version": "0.0.1",
+  "description": "Dating platform",
+  "main": "index.js",
+  "author": "D. Shevelev",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neuromantic-js/peopleconnector.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neuromantic-js/peopleconnector/issues"
+  },
+  "homepage": "https://github.com/neuromantic-js/peopleconnector#readme",
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/moment": "^1.3.0",
+    "@nuxtjs/vuetify": "^1.0.0",
+    "body-parser": "^1.19.0",
+    "cookie-universal-nuxt": "^2.0.18",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.7.4",
+    "nuxt": "^2.0.0",
+    "pug": "^2.0.4",
+    "pug-plain-loader": "^1.0.0",
+    "sharp": "^0.23.1"
+  }
+}
