@@ -1,6 +1,8 @@
 import express from 'express'
 import mongoose from 'mongoose'
 
+import accessControl from './middleware/accessControl';
+
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.set('useCreateIndex', true)
 
@@ -28,6 +30,8 @@ app.use((req, res, next) => {
    res.req = req
    next()
 })
+
+app.use(accessControl);
 
 // Register route dispatchers
 app.use(require('./api'))
