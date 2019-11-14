@@ -4,7 +4,7 @@ import express from 'express';
 // Callbacks for system routers
 import {
    checkHealth
-} from '../routes/callbacks/system';
+} from './callbacks/system';
 
 
 // Get express router object

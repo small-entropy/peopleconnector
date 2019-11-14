@@ -24,7 +24,7 @@ export default function defaultErrors(res, code, meta) {
             status = 404;
             break;
         case 'WRONG_PASS':
-            message = 'Вы ввели не коректный пароль';
+            message = 'Вы ввели не корректный пароль';
             status = 502;
             break;
         case 'WRONG_TOKEN':

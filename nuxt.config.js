@@ -34,7 +34,7 @@ export default {
 
    serverMiddleware: [
       bodyParser.json(),
-      { path: '/server', handler: '~/server/routes/' }
+      '~/server/routes/index.js'
    ],
 
    axios: {
