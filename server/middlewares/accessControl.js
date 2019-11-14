@@ -14,6 +14,7 @@ import defaultErrors from '../helpers/defaultErrors';
  * @async
  */
 export default async function accessControl(req, res, next) {
+    console.log(123);
     const token = getToken(req);
     const whiteList = ['login', 'register', 'health'];
     const url = req.originalUrl;

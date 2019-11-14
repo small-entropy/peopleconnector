@@ -1,10 +1,10 @@
 import express from 'express'
 import mongoose from 'mongoose'
 
-import accessControl from './middleware/accessControl';
+import accessControl from '../middlewares/accessControl';
 
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-mongoose.set('useCreateIndex', true)
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.set('useCreateIndex', true);
 
 // When the connection is disconnected
 mongoose.connection.on('disconnected', () => {
@@ -22,13 +22,14 @@ process.on('SIGINT', () => {
 
 // Transform req & res to have the same API as express
 // So we can use res.status() & res.json()
-const app = express()
+const app = express();
+
 app.use((req, res, next) => {
-   Object.setPrototypeOf(req, app.request)
-   Object.setPrototypeOf(res, app.response)
-   req.res = res
-   res.req = req
-   next()
+   Object.setPrototypeOf(req, app.request);
+   Object.setPrototypeOf(res, app.response);
+   req.res = res;
+   res.req = req;
+   next();
 })
 
 app.use(accessControl);
