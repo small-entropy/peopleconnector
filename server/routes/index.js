@@ -23,19 +23,19 @@ process.on('SIGINT', () => {
 // Transform req & res to have the same API as express
 // So we can use res.status() & res.json()
 const app = express();
-
+const router = require('../api');
 app.use((req, res, next) => {
    Object.setPrototypeOf(req, app.request);
    Object.setPrototypeOf(res, app.response);
    req.res = res;
    res.req = req;
    next();
-})
+});
 
 app.use(accessControl);
 
 // Register route dispatchers
-app.use(require('../api'))
+app.use(router);
 
 // Export the server middleware
 // Export the server middleware

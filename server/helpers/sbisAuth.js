@@ -1,1 +1,1 @@
-export async function sbisAuth() {}
+export default async function sbisAuth() {}

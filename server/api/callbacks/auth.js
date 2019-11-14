@@ -8,8 +8,7 @@ export function logout(req, res) {
     answerBuilder(res, undefined, undefined, meta);
 }
 
-
-export function login(req, res) {
+export async function login(req, res) {
     const { login, password } = req.body;
     const answer = await sbisAuth(login, password);
 }
