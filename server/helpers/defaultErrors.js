@@ -35,6 +35,10 @@ export default function defaultErrors(res, code, meta) {
             message = 'У вас не хватает прав для этой операции';
             status = 502;
             break;
+        case 'NOT_FOUND':
+            message = 'Объект не найден';
+            status = 404;
+            break;
         default:
             message = 'Неизвестная ошибка';
             status = 502;

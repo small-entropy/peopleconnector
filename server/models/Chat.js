@@ -3,9 +3,9 @@ const Types = mongoose.Schema.Types;
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
-    profile: {},
-    tags: {},
-    scores: {}
+    author: Types.String,
+    name: Types.String,
+    description: Types.String
 });
 
-export default mongoose.model('User', schema);
+export default mongoose.model('Chat', schema);

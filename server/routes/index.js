@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 app.use(accessControl);
 
 // Register route dispatchers
-app.use(require('./api'))
+app.use(require('../api'))
 
 // Export the server middleware
 module.exports = app
