@@ -5,6 +5,15 @@ import defaultErrors from '../../helpers/defaultErrors';
 import decodeToken from '../../helpers/decodeToken';
 import getToken from '../../helpers/getToken';
 
+/**
+ * @function
+ * @name getUserList
+ * @description
+ * @param {object} req 
+ * @param {object} res
+ * @returns
+ * @exports 
+ */
 export async function getUserList(req, res) {
     const meta = buildMeta(req);
 
@@ -25,22 +34,57 @@ export async function getUserList(req, res) {
     }
  }
 
+ /**
+ * @function
+ * @name upadteUser
+ * @description Функция обновляет данные о пользователе
+ * @param {object} req объект запроса 
+ * @param {object} res объект ответа
+ * @returns
+ * @exports 
+ */
  export async function upadteUser(req, res) {
+    // Собираем стандартный объект мета-данных
     const meta = buildMeta(req);
-    const id = req.query.id
-    const { profile, scores, tags } = req.body;
+    // Получаем индефикатор пользователя из адресной строки
+    const id = (req.hasOwnProperty('query') && req.body.hasOwnProperty('id')) 
+        ? req.query.id
+        : undefined;
+    // Получаем данные из тела запроса
+    const profile = (req.hasOwnProperty('body') && req.body.hasOwnProperty('profile'))
+        ? req.body.profile
+        : undefined;
+    const tags = (req.hasOwnProperty('body') && req.body.hasOwnProperty('tags'))
+        ? req.body.tags
+        : undefined;
+    const scores = (req.hasOwnProperty('body') && req.body.hasOwnProperty('scores'))
+        ? req.body.scores
+        : undefined;
+    // Получаем токен из запроса
     const token = getToken(req);
 
     try {
+        // Декодируем токен
         const user = await decodeToken(token); 
+        // Собираем фильтр для поиска
         const filter = { _id: id, author: user._id };
+        // Ищем пользтвателя
         const findedUser = await User.findOne(filter);
-
+        // Если пользователь найден - обновляем его данные и возвращаем ответ.
+        // Если пользователь не найден - возвращаем стандартную ошибку
         if (findedUser) {
-            user.profile = profile;
-            user.scores = scores;
-            user.tags = tags;
-            await user.save();
+            if (profile) {
+                user.profile = profile;
+            }
+            if (scores) {
+                user.scores = scores;
+            }
+            if (tags) {
+                user.tags = tags;
+            }
+            if (scores || tags || profile) {
+                await user.save();
+            }
             answerBuilder(res, user, undefined, meta);
         } else {
             defaultErrors(res, 'NOT_FOUD', meta);

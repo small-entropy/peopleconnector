@@ -1,14 +1,12 @@
-// Helper for return answer on JSON API standart
 import answerBuilder from '../../helpers/answerBuilder';
 
 /**
  * @function
  * @name checkHealth
- * @description Function return JSON API answer standart for check
- * server health
- * @param {object} req requeset express object  
- * @param {object} res responce express object
- * @returns retrne answer on JSON API standart
+ * @description Функция, возвращает ответ, если сервер работает
+ * @param {object} req объект запроса
+ * @param {object} res объект ответа
+ * @returns
  * @export
  */
 export function checkHealth(req, res) {

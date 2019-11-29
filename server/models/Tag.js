@@ -3,7 +3,7 @@ const Types = mongoose.Schema.Types;
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
-    test: Types.String,
+    text: Types.String,
     removed: {
         type: Types.Boolean,
         default: false

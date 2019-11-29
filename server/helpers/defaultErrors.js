@@ -1,7 +1,16 @@
+/**
+ * @function
+ * @name defaultErrors
+ * @description Функция, которая даёт ответ со стандартными ошибками
+ * @param {object} res объект ответа
+ * @param {string} code строковой код ошибки
+ * @param {object} meta объект мета-данных
+ * @returns
+ * @exports 
+ */
 export default function defaultErrors(res, code, meta) {
     let message;
     let status;
-    let errors;
     switch (code) {
         case 'ALREADY_REGISTER':
             message = 'Ошибка. Такой пользователь уже зарегистрирован';

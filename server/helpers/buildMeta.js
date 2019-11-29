@@ -3,9 +3,9 @@ import getToken from './getToken';
 /**
  * @function
  * @name buildMeta
- * @description Function for bouild default meta object
- * @param {object} req request express object
- * @returns {object} default meta object
+ * @description Функция собирает стандартный ответ по данным запроса
+ * @param {object} req объект запроса
+ * @returns {object} стандартный объект мета-данных
  * @export
  */
 export default function buildMeta(req) {
