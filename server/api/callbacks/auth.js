@@ -19,6 +19,7 @@ export function logout(req, res) {
     answerBuilder(res, undefined, undefined, meta);
 }
 
+<<<<<<< HEAD
 /**
  * @function
  * @name login
@@ -105,4 +106,9 @@ export async function login(req, res) {
         // Если не был передан токен СБИС - просто выкидываем ошибку
         defaultErrors(res, 'NOT_AUTH', meta);
     }
+=======
+export async function login(req, res) {
+    const { login, password } = req.body;
+    const answer = await sbisAuth(login, password);
+>>>>>>> fcf1a365584213bd6db8e203ef215c14f7a03346
 }
